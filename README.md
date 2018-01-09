@@ -114,4 +114,10 @@ Measure response time as the best approximation of the time between server recei
 
 
 Tip:
-You are free to use any publicly available npm library
+1. You are free to use any publicly available npm library
+2. This code was tested in `node v8.1.0` and `npm v5.0.3`. Please update node/npm before starting.
+3. You may need to remove the node modules folder and reinstall. Perform by:
+```
+$rm -rf node_modules/
+$npm install
+```
