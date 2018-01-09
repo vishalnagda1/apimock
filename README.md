@@ -4,6 +4,7 @@ This repo contains a broken server setup you are expected to fix. The server the
 
 To run the server, invoke
 ```
+$npm install
 $npm start
 ```
 
