@@ -107,6 +107,32 @@ Current sum is 55
 
 Modify ONLY and only the handler `loop` to get the expected response. Do not make any changes to `function adder`. I am interested in receving both the correct response as well as the correct logging on console (showing perfectly that the operation is happening serially, and not parallely). The actual step of addition needs to be performed using `function adder`, and not bypassing it by any means.
 
+6. Create an api GET /dynamicdelay , the response of the api should be 
+   2 for the first request from an ip, 
+   4 for the second request,
+   8 for the third request and so on.
+   
+   the api should also respond after
+
+   1 second  for the first request,
+   3 seconds for the second request,
+   5 seconds for the third request and so on.
+   
+   They whole series should reset after 5 minutes for each ip
+   
+   Also a brief explanation of how the api will behave based on your implementation 
+   
+   1. when its used by thousands of clients.
+   2. when a single client calls the api concurrently.
+   
+ 7. Write an api / function using JS in Atmost 1000 lines, To show your coding capabilities.
+    and an explanation of 
+    	1. The input
+	2. The output
+        3. why that api / function is impressive.
+    
+    Not the input and output can be anything, there are no restrictions
+    
 BONUS Question:
 
 Print on console every api call made, along with the response time (in milliseconds) of the API. The log should have the format:
