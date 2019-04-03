@@ -1,4 +1,5 @@
 export let hello = (request, h) => {
-  return 'Hello, world';
+  let { name } = request.query;
+  return `Hello, ${name || 'world'}`;
 };
 
