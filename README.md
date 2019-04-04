@@ -22,11 +22,11 @@ Steps to perform:
 	For eg:
 		
         Payload:
-		| Name    | Age  | Sex  |
-		| :---:   | :-:  | :-: |
-		| Harish  | 10   | M 	|
-		| Suresh  | 20   | M 	|
-		| Chanda  | 30   | F 	|
+	    | Name    | Age  | Sex  |
+	    | :---:   | :-:  | :-: |
+	    | Harish  | 10   | M 	|
+	    | Suresh  | 20   | M 	|
+	    | Chanda  | 30   | F 	|
 	
     	Response: 
         [
@@ -133,6 +133,7 @@ Modify ONLY and only the handler `loop` to get the expected response. Do not mak
     
     Not the input and output can be anything, there are no restrictions
     
+
 BONUS Question:
 
 Print on console every api call made, along with the response time (in milliseconds) of the API. The log should have the format:
@@ -148,3 +149,83 @@ Tip:
 $rm -rf node_modules/
 $npm install
 ```
+
+
+
+#### Expolrer API
+
+Endpoint - http://localhost:8001/explorer
+
+
+
+##### **Create Dir(s)**
+
+HTTP Method: POST
+
+*Payload* (body)
+
+```json
+[
+    {
+    	"path": "/dirName",
+    	"names": [ "newDirName"]
+    }
+]
+```
+
+*path* - path of the directory where you want to create directories.
+
+*names* - array of directory names which you want to create in given path.
+
+
+
+##### **List Dir(s) & File(s)**
+
+HTTP Method: GET
+
+**Params**
+
+*path* - To navigate home dir use **/** or you can pass the dir path e.g. to navigate home dir the endpoint will be **http://localhost:8001/explorer?path=/** and to navigate in a particular directory then the endpoint will be like **http://localhost:8001/explorer?path=/dirName/**.
+
+
+
+##### Rename Dir(s)
+
+HTTP Method: PUT
+
+**Payload** (body)
+
+```json
+[
+   {
+       "path": "/",
+       "names":[ ["dirNameOld", "dirNameNew"] ]
+   }
+]
+```
+
+*path* - path of the directory in which you want to rename directories.
+
+*names* - array of arrays which contains the old name and the new name of the dir.
+
+
+
+##### Remove Dir(s)
+
+HTTP Method: DELETE
+
+**Payload** (body)
+
+```json
+[
+   {
+       "path": "/",
+       "names":["dirNameToDelete"]
+   }
+]
+```
+
+*path* - path of the directory in which you want to delete directories.
+
+*names* - array of directory names which you want to delete.
+
