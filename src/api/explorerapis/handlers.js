@@ -1,5 +1,8 @@
 import fs from "fs";
 
+const SUCCESSFULL = 'Successfully loaded'
+const CREATED = 'Created successfully'
+
 const createDir = (path, directory, home) => {
     let dirPath = !path.endsWith("/") ? `${path}/` : path;
     dirPath = path.endsWith("//") ? path.substring(0, path.length - 1) : dirPath;
@@ -13,7 +16,7 @@ const createDir = (path, directory, home) => {
             fs.mkdirSync(`${dirPath}${dirName}`);
             return {
                 directory: dirName,
-                message: "Created successfully",
+                message: SUCCESSFULL,
                 path: `${homeDir}`,
             };
         } catch (error) {
@@ -28,13 +31,14 @@ const createDir = (path, directory, home) => {
 };
 
 export const create = async (request, h) => {
-    const { payload } = request
-    const response = payload.map(data =>
+    // Validating payload
+    const validData = (await validator.create.validate({ body: request.payload })).body;
+    const response = validData.map(data =>
         createDir(`${pathUrl}${data.path}`, data.names, data.path),
     );
     return {
         status: 201,
         data: response,
-        message: "Successfully loaded",
+        message: CREATED,
     };
 };
