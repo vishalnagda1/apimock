@@ -2,10 +2,10 @@ import * as handlers from './handlers';
 
 let routes = [
     {
-        method: 'GET',
+        method: 'POST',
         path: '/explorer',
-        handler: handlers.test
-    }
+        handler: handlers.create
+    },
 ];
 
 export default routes;
